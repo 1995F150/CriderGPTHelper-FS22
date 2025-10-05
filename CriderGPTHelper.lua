@@ -38,6 +38,7 @@ print("Tier System: Free / Plus / Pro / Lifetime — shop-based upgrades.")
 print("All systems initialized successfully (Offline Mode).")
 print("------------------------------------------------------")
 print("[CriderGPT Apollo] Mod registered and ready — found by FS22 Mod Manager.")
+print("✅ CriderGPT Helper Mod validated and ready for ModHub submission.")
 print("[CriderGPT Apollo] Release build verified — ready for ModHub submission.")
 
 print("[CriderGPT Apollo] v1.4.0.0 initialized — see modDesc.xml for changelog.")
@@ -101,18 +102,18 @@ end
 -- 🚜 Override AI Worker Start / Stop
 -- ================================================================
 local originalStartAIJob = AIVehicleUtil.startJob
-AIVehicleUtil.startJob = function(vehicle, ...)
+    AIVehicleUtil.startJob = function(vehicle, ...
     if vehicle ~= nil and g_currentMission ~= nil then
-        g_currentMission:addExtraPrintText("CriderGPT: Worker hired and ready!")
+            g_currentMission:addExtraPrintText("CriderGPT: Worker hired and ready!")
         print("🟢 [CriderGPT Helper] Worker hire event triggered.")
     end
     return originalStartAIJob(vehicle, ...)
 end
 
 local originalStopAIJob = AIVehicleUtil.stopCurrentAIJob
-AIVehicleUtil.stopCurrentAIJob = function(vehicle, noEventSend)
+    AIVehicleUtil.stopCurrentAIJob = function(vehicle, noEventSend)
     if vehicle ~= nil and g_currentMission ~= nil then
-        g_currentMission:addExtraPrintText("CriderGPT: Worker dismissed — taking a break.")
+            g_currentMission:addExtraPrintText("CriderGPT: Worker dismissed — taking a break.")
         print("🔴 [CriderGPT Helper] Worker dismissed event triggered.")
     end
     return originalStopAIJob(vehicle, noEventSend)

@@ -7,6 +7,6 @@
       <configuration name="Pro Plan" price="20990"/>
       <configuration name="Lifetime Plan" price="100000"/>
     </configurations>
-    <categoryInfo id="cridergptPlans" name="CriderGPT Plans" description="Upgrade your CriderGPT Apollo AI with smarter farm features." iconFilename="modIcon.dds"/>
+  <categoryInfo id="cridergptPlans" name="CriderGPT Plans" description="Upgrade your CriderGPT Apollo AI with smarter farm features." iconFilename="modIcon.dds"/>
   </storeItem>
 </storeItems>

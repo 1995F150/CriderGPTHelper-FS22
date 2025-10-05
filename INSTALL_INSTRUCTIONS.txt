@@ -1,0 +1,36 @@
+# How to Install CriderGPT Helper Mod for Dummies
+
+Follow these super simple steps to get the CriderGPT Helper mod working in Farming Simulator 22!
+
+---
+
+## 1. Download the Mod
+- Get the file called `FS22_CriderGPTHelper_v1.5.0.0.zip` (it should be provided to you or downloaded from ModHub/GitHub).
+
+## 2. Find Your FS22 Mods Folder
+- On Windows: Go to `Documents\My Games\FarmingSimulator2022\mods`
+- On Mac: Go to `~/Library/Application Support/FarmingSimulator2022/mods`
+- On Linux: Go to `~/.local/share/FarmingSimulator2022/mods`
+
+## 3. Put the ZIP in the Mods Folder
+- Copy or move the `FS22_CriderGPTHelper_v1.5.0.0.zip` file into your `mods` folder.
+- **Do NOT unzip it!** Just put the ZIP file there.
+
+## 4. Start the Game
+- Open Farming Simulator 22.
+- Go to the "Mods" section in the main menu.
+- Make sure "CriderGPT Helper" is enabled for your savegame.
+
+## 5. Play!
+- Enjoy smarter helpers with CriderGPT in your game!
+
+---
+
+### Troubleshooting
+- If the mod doesn't show up, double-check that the ZIP file is in the correct `mods` folder.
+- Make sure you didn't unzip the file—FS22 only reads ZIPs!
+- Restart the game after adding the mod.
+
+---
+
+**That's it! You're ready to farm with CriderGPT.**
