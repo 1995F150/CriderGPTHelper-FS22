@@ -4,7 +4,8 @@
     <!-- English -->
     <!-- ===================== -->
     <texts language="en">
-        <text name="input_AI_START">Hire CriderGPT</text>
+           <text name="input_AI_START">Hire CriderGPT</text>
+           <text name="changelog_v1400">CriderGPT Apollo Core: Offline farm intelligence, chat UI, field/vehicle/animal/economy awareness, and creator metadata.</text>
         <text name="input_AI_STOP">Dismiss CriderGPT</text>
         <text name="input_AI_HIRE">Hire CriderGPT</text>
         <text name="input_AI_DISMISS">Dismiss CriderGPT</text>

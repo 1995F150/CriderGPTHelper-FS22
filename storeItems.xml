@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<storeItems>
+  <storeItem category="cridergptPlans" name="CriderGPT Apollo Core" price="0">
+    <configurations>
+      <configuration name="Free Plan" price="0"/>
+      <configuration name="Plus Plan" price="9990"/>
+      <configuration name="Pro Plan" price="20990"/>
+      <configuration name="Lifetime Plan" price="100000"/>
+    </configurations>
+    <categoryInfo id="cridergptPlans" name="CriderGPT Plans" description="Upgrade your CriderGPT Apollo AI with smarter farm features." iconFilename="modIcon.dds"/>
+  </storeItem>
+</storeItems>

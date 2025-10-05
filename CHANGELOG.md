@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0.0] - 2025-10-05
+- Added CriderGPT Apollo Core (offline farm intelligence)
+- Full in-game chat UI tab
+- Field, vehicle, production, livestock, and economy awareness
+- Creator metadata system for Jessie Crider (FFA Historian)
+- Liters↔gallons conversion and smarter responses
+- Improved offline performance and compatibility
+
 ## [1.3.2.0] - 2025-10-04
 - Fixed texture font errors by replacing unsupported Unicode characters.
 - Updated modDesc.xml to descVersion 66 for FS22 compatibility.
