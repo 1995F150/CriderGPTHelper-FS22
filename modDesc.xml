@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="66">
+    <author>Jessie Crider</author>
+    <version>1.3.2.0</version>
+    <multiplayer supported="true"/>
+
+    <title>
+        <en>CriderGPT Helper</en>
+        <de>CriderGPT Helfer</de>
+        <fr>Assistant CriderGPT</fr>
+        <es>Asistente CriderGPT</es>
+    </title>
+
+    <description>
+        <en>
+            CriderGPT Helper is your smart AI farmhand for Farming Simulator 22.
+            This lightweight script enhances gameplay with intelligent automation, UI customization, and helpful HUD alerts.
+
+            Features:
+            - Replaces "Hire AI Worker" / "Dismiss AI Worker" with "Hire CriderGPT" / "Dismiss CriderGPT" in the UI
+            - Displays custom HUD notifications when workers are hired or dismissed
+            - Monitors vehicle fuel and warns when running low
+            - Precision Farming-ready foundation for pH and nitrogen analysis
+            - Fully console-compatible (no external scripts required)
+        </en>
+
+        <de>
+            CriderGPT Helfer ist dein intelligenter KI-Farmhelfer fuer Farming Simulator 22.
+            Dieses Skript verbessert das Gameplay mit Automatisierung, UI-Anpassung und nuetzlichen Warnungen.
+
+            Funktionen:
+            - Ersetzt "KI-Arbeiter einstellen" / "KI-Arbeiter entlassen" durch "CriderGPT einstellen" / "CriderGPT entlassen" im UI
+            - Zeigt benutzerdefinierte HUD-Benachrichtigungen bei Arbeiteraktionen an
+            - Ueberwacht Kraftstoff und warnt bei niedrigem Stand
+            - Precision Farming-kompatibel fuer zukuenftige pH- und Stickstoffanalyse
+            - Vollstaendig konsolenkompatibel (keine externen Skripte erforderlich)
+        </de>
+
+        <fr>
+            CriderGPT Helper est votre assistant agricole IA pour Farming Simulator 22.
+            Ce script ameliore le jeu avec une automatisation intelligente, des alertes utiles et une interface personnalisee.
+
+            Caracteristiques:
+            - Remplace "Embaucher un ouvrier IA" / "Renvoyer un ouvrier IA" par "Embaucher CriderGPT" / "Renvoyer CriderGPT" dans l'interface
+            - Affiche des notifications HUD personnalisees lors de l'embauche ou du renvoi d'ouvriers
+            - Surveille le carburant et affiche une alerte en cas de niveau faible
+            - Compatible avec Precision Farming pour les analyses de pH et d'azote
+            - Entierement compatible avec les consoles (sans scripts externes)
+        </fr>
+
+        <es>
+            CriderGPT Helper es tu asistente agricola con IA para Farming Simulator 22.
+            Este script mejora el juego con automatizacion inteligente, alertas utiles y una interfaz personalizada.
+
+            Caracteristicas:
+            - Reemplaza "Contratar trabajador IA" / "Despedir trabajador IA" por "Contratar CriderGPT" / "Despedir CriderGPT" en la interfaz
+            - Muestra notificaciones HUD personalizadas al contratar o despedir trabajadores
+            - Supervisa el combustible y avisa cuando el nivel es bajo
+            - Compatible con Precision Farming para futuras integraciones de pH y nitrogeno
+            - Totalmente compatible con consolas (sin scripts externos)
+        </es>
+    </description>
+
+    <iconFilename>modIcon.dds</iconFilename>
+
+    <extraSourceFiles>
+        <sourceFile filename="CriderGPTHelper.lua"/>
+    </extraSourceFiles>
+
+    <l10n filenamePrefix="modDesc_l10n"/>
+
+    <dependencies/>
+</modDesc>
