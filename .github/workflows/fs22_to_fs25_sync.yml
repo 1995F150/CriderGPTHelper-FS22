@@ -1,92 +1,35 @@
-name: FS22 to FS25 Sync & Build
+name: Auto-Build FS25 ZIP
+
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
+      - FS25_version
+
 jobs:
-  convert-and-sync:
+  build-zip:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main branch
+      - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Get current version
+        id: version
+        run: |
+          VERSION=$(grep -oP '(?<=<version>)[0-9.]+(?=</version>)' FS25/modDesc.xml)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Create ZIP
+        run: |
+          mkdir -p dist
+          ZIPNAME="FS25_CriderGPTHelper_v${{ steps.version.outputs.version }}.zip"
+          cd FS25
+          zip -r "../dist/$ZIPNAME" ./*
+          cd ..
+          echo "✅ Built $ZIPNAME"
+
+      - name: Upload ZIP artifact
+        uses: actions/upload-artifact@v4
         with:
-          fetch-depth: 0
-          ref: main
-
-      - name: Set up Git user
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Copy FS22 files to FS25 (excluding ZIPs)
-        run: |
-          rsync -av --exclude='*.zip' ./ ./FS25/
-
-      - name: Convert FS22 XMLs to FS25
-        run: |
-          rm -rf FS25
-          cp -r FS22 FS25
-
-          # ---- Dynamic Version Detection ----
-          VERSION=$(grep -oP '(?<=<version>)[0-9\.]+(?=</version>)' FS22/modDesc.xml | head -1)
-          IFS='.' read -ra VER <<< "$VERSION"
-          NEW_MINOR=$(( ${VER[1]} + 1 ))
-          NEW_VERSION="${VER[0]}.$NEW_MINOR.${VER[2]}.${VER[3]}"
-
-          # ---- Replace XML Content ----
-          sed -i 's/descVersion="66"/descVersion="80"/g' FS25/modDesc.xml
-          sed -i "0,/<version>.*<\/version>/s//<version>${NEW_VERSION}<\/version>/" FS25/modDesc.xml
-          find FS25 -type f -exec sed -i 's/Farming Simulator 22/Farming Simulator 25/g' {} +
-          find FS25 -type f -exec sed -i 's/FS22_/FS25_/g' {} +
-
-          # ---- Rename Inner Folder ----
-          if [ -d "FS25/FS22_CriderGPTHelper" ]; then
-            mv FS25/FS22_CriderGPTHelper FS25/FS25_CriderGPTHelper
-          fi
-
-          echo "[UPDATED] Converted FS22 modDesc.xml to FS25 version=${NEW_VERSION}"
-
-      - name: Update FS25 descVersion to 90
-        run: |
-          cd FS25
-          echo "[PATCH] Updating descVersion in modDesc.xml to 90 for FS25 compatibility..."
-          sed -i 's/descVersion="80"/descVersion="90"/g' modDesc.xml
-          echo "[DONE] descVersion successfully set to 90."
-          cd ..
-
-      - name: Clean old zips before packaging
-        run: |
-          cd FS25
-          echo "[CLEANUP] Removing any old zip files from FS25 directory..."
-          find . -type f -name "*.zip" -delete
-          echo "[CLEANUP] All previous zips removed. Safe to build new version."
-          cd ..
-
-      - name: Auto-build FS25 ZIP
-        run: |
-          cd FS25
-          VERSION=$(grep -oP '(?<=<version>)[0-9\.]+(?=</version>)' modDesc.xml | head -1)
-          ZIPNAME="FS25_CriderGPTHelper_v${VERSION}.zip"
-          zip -r "$ZIPNAME" ./*
-          echo "[SUCCESS] $ZIPNAME built successfully at $(pwd)"
-          cd ..
-          zip -r build/FS22_CriderGPTHelper_v${VERSION}.zip FS22/
-          cp FS25/$ZIPNAME build/
-
-      - name: Log conversion
-        run: |
-          mkdir -p logs
-          echo "[OK] Converted FS22 → FS25 (descVersion 66 → 80)" > logs/env_convert.log
-          echo "[UPDATE] Version bumped to 1.5.0.0" >> logs/env_convert.log
-          echo "[ZIP] FS22_CriderGPTHelper_v1.5.0.0.zip and FS25_CriderGPTHelper_v1.5.0.0.zip built" >> logs/env_convert.log
-          echo "[DONE] FS25 files and metadata synced successfully." >> logs/env_convert.log
-
-      - name: Commit and push FS25 changes
-        run: |
-          git config user.name "CriderGPT Auto Sync"
-          git config user.email "actions@github.com"
-          git checkout -B fs25_version
-          git add FS25
-          git commit -m "Synced FS22 → FS25 environment (v${NEW_VERSION})" || echo "No changes to commit."
-          git push origin fs25_version --force
+          name: FS25_Build
+          path: dist/*.zip
