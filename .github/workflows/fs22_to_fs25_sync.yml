@@ -1,0 +1,40 @@
+name: Auto-Build FS25 ZIP
+
+on:
+  push:
+    branches:
+      - main
+      - FS25_version
+
+jobs:
+  build-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Ensure descVersion is 90
+        run: |
+          sed -i 's/descVersion="[0-9]*"/descVersion="90"/' FS25/modDesc.xml
+          echo "✅ descVersion set to 90 in FS25/modDesc.xml"
+
+      - name: Get current version
+        id: version
+        run: |
+          VERSION=$(grep -oP '(?<=<version>)[0-9.]+(?=</version>)' FS25/modDesc.xml)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Create ZIP
+        run: |
+          mkdir -p dist
+          ZIPNAME="FS25_CriderGPTHelper_v${{ steps.version.outputs.version }}.zip"
+          cd FS25
+          zip -r "../dist/$ZIPNAME" ./*
+          cd ..
+          echo "✅ Built $ZIPNAME"
+
+      - name: Upload ZIP artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: FS25_Build
+          path: dist/*.zip

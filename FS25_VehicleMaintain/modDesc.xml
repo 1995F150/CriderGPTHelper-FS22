@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="90">
+    <author>Your Name</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Vehicle Maintain</en>
+    </title>
+    <description>
+        <en>
+            Adds vehicle maintenance features to Farming Simulator 25.
+        </en>
+    </description>
+    <multiplayer supported="true"/>
+    <!-- Add more metadata as needed -->
+</modDesc>

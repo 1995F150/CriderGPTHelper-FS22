@@ -1,0 +1,49 @@
+name: Auto-Build FS25 VehicleMaintain ZIP
+
+on:
+  push:
+    branches:
+      - main
+      - FS25_version
+
+jobs:
+  build-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Auto-increment version
+        id: bump_version
+        run: |
+          FILE="FS25_VehicleMaintain/modDesc.xml"
+          OLD_VERSION=$(grep -oP '(?<=<version>)[0-9.]+(?=</version>)' "$FILE")
+          IFS='.' read -ra VER <<< "$OLD_VERSION"
+          VER[1]=$((VER[1]+1))
+          NEW_VERSION="${VER[0]}.${VER[1]}.${VER[2]}.${VER[3]}"
+          sed -i "0,/<version>.*<\/version>/s//<version>${NEW_VERSION}<\/version>/" "$FILE"
+          echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Update descVersion and changelog
+        run: |
+          sed -i 's/descVersion="[0-9]*"/descVersion="90"/' FS25_VehicleMaintain/modDesc.xml
+          echo "## $(date +'%Y-%m-%d') - v${{ steps.bump_version.outputs.version }}\n- Auto-build: version bump, descVersion set to 90, latest features packaged." >> FS25_VehicleMaintain/CHANGELOG.md
+
+      - name: Clean old ZIPs
+        run: |
+          rm -f FS25_VehicleMaintain/*.zip
+
+      - name: Create ZIP
+        run: |
+          ZIPNAME="FS25_VehicleMaintain_v${{ steps.bump_version.outputs.version }}.zip"
+          cd FS25_VehicleMaintain
+          zip -r "$ZIPNAME" ./*
+          cd ..
+          mv FS25_VehicleMaintain/$ZIPNAME FS25_VehicleMaintain/
+          echo "✅ Built $ZIPNAME"
+
+      - name: Upload ZIP artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: FS25_VehicleMaintain_Build
+          path: FS25_VehicleMaintain/*.zip

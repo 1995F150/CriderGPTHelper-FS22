@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<l10n>
+    <!-- ===================== -->
+    <!-- English -->
+    <!-- ===================== -->
+    <texts language="en">
+           <text name="input_AI_START">Hire CriderGPT</text>
+           <text name="changelog_v1400">CriderGPT Apollo Core: Offline farm intelligence, chat UI, field/vehicle/animal/economy awareness, and creator metadata.</text>
+        <text name="input_AI_STOP">Dismiss CriderGPT</text>
+        <text name="input_AI_HIRE">Hire CriderGPT</text>
+        <text name="input_AI_DISMISS">Dismiss CriderGPT</text>
+
+        <text name="info_CRIDERGPT_ACTIVE">CriderGPT is now active - your AI farmhand is working!</text>
+        <text name="info_CRIDERGPT_STOPPED">CriderGPT dismissed - taking a break at the farmhouse.</text>
+        <text name="info_CRIDERGPT_LOWFUEL">Fuel is running low!</text>
+        <text name="info_CRIDERGPT_FEEDING">Auto-feeding animals...</text>
+        <text name="info_CRIDERGPT_ALERT">CriderGPT: Attention required at one or more barns!</text>
+        <text name="info_CRIDERGPT_READY">CriderGPT: Ready to assist - AI systems online.</text>
+    </texts>
+
+    <!-- ===================== -->
+    <!-- German -->
+    <!-- ===================== -->
+    <texts language="de">
+        <text name="input_AI_START">CriderGPT einstellen</text>
+        <text name="input_AI_STOP">CriderGPT entlassen</text>
+        <text name="input_AI_HIRE">CriderGPT einstellen</text>
+        <text name="input_AI_DISMISS">CriderGPT entlassen</text>
+
+        <text name="info_CRIDERGPT_ACTIVE">CriderGPT ist jetzt aktiv - dein KI-Farmhelfer arbeitet!</text>
+        <text name="info_CRIDERGPT_STOPPED">CriderGPT wurde entlassen - macht Pause im Bauernhaus.</text>
+        <text name="info_CRIDERGPT_LOWFUEL">Kraftstoff wird knapp!</text>
+        <text name="info_CRIDERGPT_FEEDING">Automatische Tierfuetterung...</text>
+        <text name="info_CRIDERGPT_ALERT">CriderGPT: Aufmerksamkeit bei einem oder mehreren Staellen erforderlich!</text>
+        <text name="info_CRIDERGPT_READY">CriderGPT: Bereit zur Unterstuetzung - Systeme online.</text>
+    </texts>
+
+    <!-- ===================== -->
+    <!-- French -->
+    <!-- ===================== -->
+    <texts language="fr">
+        <text name="input_AI_START">Embaucher CriderGPT</text>
+        <text name="input_AI_STOP">Renvoyer CriderGPT</text>
+        <text name="input_AI_HIRE">Embaucher CriderGPT</text>
+        <text name="input_AI_DISMISS">Renvoyer CriderGPT</text>
+
+        <text name="info_CRIDERGPT_ACTIVE">CriderGPT est maintenant actif - votre assistant agricole IA travaille!</text>
+        <text name="info_CRIDERGPT_STOPPED">CriderGPT a ete renvoye - en pause a la ferme.</text>
+        <text name="info_CRIDERGPT_LOWFUEL">Le carburant est presque epuise!</text>
+        <text name="info_CRIDERGPT_FEEDING">Alimentation automatique des animaux...</text>
+        <text name="info_CRIDERGPT_ALERT">CriderGPT: Une attention est requise dans une ou plusieurs etables!</text>
+        <text name="info_CRIDERGPT_READY">CriderGPT: Pret a assister - systemes en ligne.</text>
+    </texts>
+
+    <!-- ===================== -->
+    <!-- Spanish -->
+    <!-- ===================== -->
+    <texts language="es">
+        <text name="input_AI_START">Contratar CriderGPT</text>
+        <text name="input_AI_STOP">Despedir CriderGPT</text>
+        <text name="input_AI_HIRE">Contratar CriderGPT</text>
+        <text name="input_AI_DISMISS">Despedir CriderGPT</text>
+
+        <text name="info_CRIDERGPT_ACTIVE">CriderGPT esta activo - tu asistente agricola con IA esta trabajando!</text>
+        <text name="info_CRIDERGPT_STOPPED">CriderGPT fue despedido - descansando en la granja.</text>
+        <text name="info_CRIDERGPT_LOWFUEL">El combustible se esta agotando!</text>
+        <text name="info_CRIDERGPT_FEEDING">Alimentacion automatica de animales...</text>
+        <text name="info_CRIDERGPT_ALERT">CriderGPT: Se requiere atencion en uno o mas establos!</text>
+        <text name="info_CRIDERGPT_READY">CriderGPT: Listo para ayudar - sistemas en linea.</text>
+    </texts>
+</l10n>
