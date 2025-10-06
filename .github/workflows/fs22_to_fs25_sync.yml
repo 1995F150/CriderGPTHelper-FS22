@@ -28,26 +28,33 @@ jobs:
         run: |
           find FS25/ -type f -exec sed -i 's/FS22_/FS25_/g' {} +
           sed -i 's/descVersion="66"/descVersion="80"/g' FS25/modDesc.xml
-          sed -i 's/version="1.4"/version="1.5"/g' FS25/modDesc.xml
+          VERSION=$(grep -oP '(?<=version=")[^"]+' FS22/modDesc.xml)
+          IFS='.' read -ra VER <<< "$VERSION"
+          NEW_MINOR=$(( ${VER[1]} + 1 ))
+          NEW_VERSION="${VER[0]}.$NEW_MINOR.${VER[2]}.${VER[3]}"
+          sed -i "s/version=\"$VERSION\"/version=\"$NEW_VERSION\"/g" FS25/modDesc.xml
           sed -i 's/FS22_CriderGPTHelper/FS25_CriderGPTHelper/g' FS25/storeItems.xml
+          find FS25 -type f -exec sed -i 's/Farming Simulator 22/Farming Simulator 25/g' {} \;
 
       - name: Rebuild ZIPs
         run: |
           mkdir -p build
-          zip -r build/FS22_CriderGPTHelper_v1.5.zip . -x "FS25/*" "*.zip"
-          zip -r build/FS25_CriderGPTHelper_v1.5.zip FS25/
+          zip -r build/FS22_CriderGPTHelper_v${VERSION}.zip FS22/
+          zip -r build/FS25_CriderGPTHelper_v${NEW_VERSION}.zip FS25/
 
       - name: Log conversion
         run: |
           mkdir -p logs
           echo "[OK] FS22 → FS25 conversion complete." > logs/env_convert.log
           echo "[SYNC] modDesc.xml updated to FS25 descVersion=80" >> logs/env_convert.log
-          echo "[ZIP] Created FS25_CriderGPTHelper_v1.5.zip ($(du -h build/FS25_CriderGPTHelper_v1.5.zip | cut -f1))" >> logs/env_convert.log
+          echo "[UPDATE] Version $VERSION → $NEW_VERSION" >> logs/env_convert.log
+          echo "[ZIP] Created FS22_CriderGPTHelper_v${VERSION}.zip ($(du -h build/FS22_CriderGPTHelper_v${VERSION}.zip | cut -f1))" >> logs/env_convert.log
+          echo "[ZIP] Created FS25_CriderGPTHelper_v${NEW_VERSION}.zip ($(du -h build/FS25_CriderGPTHelper_v${NEW_VERSION}.zip | cut -f1))" >> logs/env_convert.log
           echo "[DONE] Both environments synced successfully." >> logs/env_convert.log
 
       - name: Commit and push FS25 changes
         run: |
           git checkout fs25_version || git checkout -b fs25_version
           git add FS25/ build/ logs/env_convert.log
-          git commit -m "Synced FS22 updates → FS25 environment (v1.5.0)" || echo "No changes to commit."
+          git commit -m "Synced FS22 → FS25 v${NEW_VERSION}" || echo "No changes to commit."
           git push origin fs25_version
