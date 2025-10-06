@@ -1,3 +1,36 @@
+-- ---- SMART ALERT SYSTEM ----
+SmartAlerts = {}
+
+function SmartAlerts:monitorVehicles(dt)
+    if not g_currentMission or not g_currentMission.controlledVehicle then return end
+
+    local vehicle = g_currentMission.controlledVehicle
+    if vehicle.getFuelFillLevel and vehicle.getFuelCapacity then
+        local fuelPct = (vehicle:getFuelFillLevel() / vehicle:getFuelCapacity()) * 100
+        if fuelPct < 20 and (not self.lastFuelAlert or g_time - self.lastFuelAlert > 60000) then
+            g_currentMission:showBlinkingWarning("⚠️ Low fuel in " .. vehicle:getName(), 5000)
+            self.lastFuelAlert = g_time
+        end
+    end
+
+    if vehicle.getDamageAmount and vehicle:getDamageAmount() > 0.75 then
+        if not self.lastRepairAlert or g_time - self.lastRepairAlert > 120000 then
+            g_currentMission:showBlinkingWarning("🔧 Maintenance needed for " .. vehicle:getName(), 5000)
+            self.lastRepairAlert = g_time
+        end
+    end
+end
+
+-- Hook into update loop
+function CriderGPTHelper:onUpdate(dt)
+    if not self.smartAlertTimer then self.smartAlertTimer = 0 end
+    self.smartAlertTimer = self.smartAlertTimer + dt
+    if self.smartAlertTimer > 15000 then -- every 15 seconds
+        SmartAlerts:monitorVehicles(dt)
+        self.smartAlertTimer = 0
+    end
+end
+-- ---- END SMART ALERTS ----
 CRIDERGPT_VERSION = "1.5.0.0"
 if Class == nil then
     function Class(baseClass)
