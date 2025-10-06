@@ -13,6 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Ensure descVersion is 90
+        run: |
+          sed -i 's/descVersion="[0-9]*"/descVersion="90"/' FS25/modDesc.xml
+          echo "✅ descVersion set to 90 in FS25/modDesc.xml"
+
       - name: Get current version
         id: version
         run: |

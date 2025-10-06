@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="90">
+    <author>CriderGPT</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>CriderGPT Vehicle Maintenance</en>
+    </title>
+    <description>
+        <en>
+            Adds full vehicle maintenance realism: battery, oil, engine wear, and repair systems. Console-compatible and ready for ModHub.
+        </en>
+    </description>
+    <multiplayer supported="true"/>
+    <iconFilename>modIcon.dds</iconFilename>
+    <storeItems filename="storeItems.xml"/>
+</modDesc>
