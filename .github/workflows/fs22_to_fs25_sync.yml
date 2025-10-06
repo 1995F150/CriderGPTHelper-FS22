@@ -48,10 +48,16 @@ jobs:
 
           echo "[UPDATED] Converted FS22 modDesc.xml to FS25 version=${NEW_VERSION}"
 
-      - name: Rebuild ZIPs
+      - name: Auto-build FS25 ZIP
         run: |
+          cd FS25
+          VERSION=$(grep -oP '(?<=<version>)[0-9\.]+(?=</version>)' modDesc.xml | head -1)
+          ZIPNAME="FS25_CriderGPTHelper_v${VERSION}.zip"
+          zip -r "$ZIPNAME" ./*
+          echo "[SUCCESS] $ZIPNAME built successfully at $(pwd)"
+          cd ..
           zip -r build/FS22_CriderGPTHelper_v${VERSION}.zip FS22/
-          zip -r build/FS25_CriderGPTHelper_v${NEW_VERSION}.zip FS25/FS25_CriderGPTHelper
+          cp FS25/$ZIPNAME build/
 
       - name: Log conversion
         run: |
