@@ -1,10 +1,9 @@
-name: FS22 to FS25 Auto Sync
-
+name: FS22 to FS25 Sync & Build
 on:
   push:
     branches:
       - main
-
+  workflow_dispatch:
 jobs:
   convert-and-sync:
     runs-on: ubuntu-latest
@@ -47,6 +46,22 @@ jobs:
           fi
 
           echo "[UPDATED] Converted FS22 modDesc.xml to FS25 version=${NEW_VERSION}"
+
+      - name: Update FS25 descVersion to 90
+        run: |
+          cd FS25
+          echo "[PATCH] Updating descVersion in modDesc.xml to 90 for FS25 compatibility..."
+          sed -i 's/descVersion="80"/descVersion="90"/g' modDesc.xml
+          echo "[DONE] descVersion successfully set to 90."
+          cd ..
+
+      - name: Clean old zips before packaging
+        run: |
+          cd FS25
+          echo "[CLEANUP] Removing any old zip files from FS25 directory..."
+          find . -type f -name "*.zip" -delete
+          echo "[CLEANUP] All previous zips removed. Safe to build new version."
+          cd ..
 
       - name: Auto-build FS25 ZIP
         run: |
