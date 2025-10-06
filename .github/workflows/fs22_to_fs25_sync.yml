@@ -1,0 +1,53 @@
+name: FS22 to FS25 Auto Sync
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  convert-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Set up Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Copy FS22 files to FS25 (excluding ZIPs)
+        run: |
+          rsync -av --exclude='*.zip' ./ ./FS25/
+
+      - name: Replace FS22 references in FS25 files
+        run: |
+          find FS25/ -type f -exec sed -i 's/FS22_/FS25_/g' {} +
+          sed -i 's/descVersion="66"/descVersion="80"/g' FS25/modDesc.xml
+          sed -i 's/version="1.4"/version="1.5"/g' FS25/modDesc.xml
+          sed -i 's/FS22_CriderGPTHelper/FS25_CriderGPTHelper/g' FS25/storeItems.xml
+
+      - name: Rebuild ZIPs
+        run: |
+          mkdir -p build
+          zip -r build/FS22_CriderGPTHelper_v1.5.zip . -x "FS25/*" "*.zip"
+          zip -r build/FS25_CriderGPTHelper_v1.5.zip FS25/
+
+      - name: Log conversion
+        run: |
+          mkdir -p logs
+          echo "[OK] FS22 → FS25 conversion complete." > logs/env_convert.log
+          echo "[SYNC] modDesc.xml updated to FS25 descVersion=80" >> logs/env_convert.log
+          echo "[ZIP] Created FS25_CriderGPTHelper_v1.5.zip ($(du -h build/FS25_CriderGPTHelper_v1.5.zip | cut -f1))" >> logs/env_convert.log
+          echo "[DONE] Both environments synced successfully." >> logs/env_convert.log
+
+      - name: Commit and push FS25 changes
+        run: |
+          git checkout fs25_version || git checkout -b fs25_version
+          git add FS25/ build/ logs/env_convert.log
+          git commit -m "Synced FS22 updates → FS25 environment (v1.5.0)" || echo "No changes to commit."
+          git push origin fs25_version
