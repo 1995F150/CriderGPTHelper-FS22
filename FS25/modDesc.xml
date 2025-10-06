@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+ <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="90">
     <author>Jessie Crider</author>
     <version>2.2.0.0</version>
-        <multiplayer supported="true"/>
+    <multiplayer supported="true"/>
 
     <title>
         <en>CriderGPT Helper</en>
@@ -13,103 +13,104 @@
 
     <description>
         <en>
-              CriderGPT Helper is your smart AI farmhand for Farming Simulator 25.
-              This lightweight script enhances gameplay with intelligent automation, UI customization, and helpful HUD alerts.
+            CriderGPT Helper is your smart AI farmhand for Farming Simulator 25.
+            This lightweight script enhances gameplay with intelligent automation, UI customization, and helpful HUD alerts.
 
-              Features:
-              - Smart Alerts for fuel, maintenance, and damage detection
-              - Automatic HUD warnings every 15 seconds
-              - Replaces "Hire AI Worker" / "Dismiss AI Worker" with "Hire CriderGPT" / "Dismiss CriderGPT" in the UI
-              - Displays custom HUD notifications when workers are hired or dismissed
-              - Monitors vehicle fuel and warns when running low
-              - Precision Farming-ready foundation for pH and nitrogen analysis
-              - Fully console-compatible (no external scripts required)
+            Features:
+            - Smart alerts for fuel, maintenance, and damage detection
+            - Automatic HUD warnings every 15 seconds
+            - Replaces "Hire AI Worker" / "Dismiss AI Worker" with "Hire CriderGPT" / "Dismiss CriderGPT" in the UI
+            - Displays custom HUD notifications when workers are hired or dismissed
+            - Monitors vehicle fuel and warns when running low
+            - Precision Farming-ready foundation for pH and nitrogen analysis
+            - Fully console-compatible (no external scripts required)
 
-              ------
-              CHANGELOG v1.4.0.0
-              - Added CriderGPT Apollo Core (offline farm intelligence)
-              - Added full in-game chat UI tab
-              - Added field, vehicle, production, livestock, and economy awareness
-              - Added creator metadata system for Jessie Crider (FFA Historian)
-              - Added liters↔gallons conversion and smarter responses
-              - Improved overall offline performance and compatibility
-              ------
+            ------
+            CHANGELOG v1.4.0.0
+            - Added CriderGPT Apollo Core (offline farm intelligence)
+            - Added full in-game chat UI tab
+            - Added field, vehicle, production, livestock, and economy awareness
+            - Added creator metadata system for Jessie Crider (FFA Historian)
+            - Added liters↔gallons conversion and smarter responses
+            - Improved overall offline performance and compatibility
+            ------
         </en>
 
         <de>
-              CriderGPT Helfer ist dein intelligenter KI-Farmhelfer fuer Farming Simulator 25.
-              Dieses Skript verbessert das Gameplay mit Automatisierung, UI-Anpassung und nuetzlichen Warnungen.
+            CriderGPT Helfer ist dein intelligenter KI-Farmhelfer fuer Farming Simulator 25.
+            Dieses Skript verbessert das Gameplay mit Automatisierung, UI-Anpassung und nuetzlichen Warnungen.
 
-              Funktionen:
-              - Ersetzt "KI-Arbeiter einstellen" / "KI-Arbeiter entlassen" durch "CriderGPT einstellen" / "CriderGPT entlassen" im UI
-              - Zeigt benutzerdefinierte HUD-Benachrichtigungen bei Arbeiteraktionen an
-              - Ueberwacht Kraftstoff und warnt bei niedrigem Stand
-              - Precision Farming-kompatibel fuer zukuenftige pH- und Stickstoffanalyse
-              - Vollstaendig konsolenkompatibel (keine externen Skripte erforderlich)
+            Funktionen:
+            - Ersetzt "KI-Arbeiter einstellen" / "KI-Arbeiter entlassen" durch "CriderGPT einstellen" / "CriderGPT entlassen" im UI
+            - Zeigt benutzerdefinierte HUD-Benachrichtigungen bei Arbeiteraktionen an
+            - Ueberwacht Kraftstoff und warnt bei niedrigem Stand
+            - Precision Farming-kompatibel fuer zukuenftige pH- und Stickstoffanalyse
+            - Vollstaendig konsolenkompatibel (keine externen Skripte erforderlich)
 
-              ------
-              CHANGELOG v1.4.0.0
-              - CriderGPT Apollo Core hinzugefuegt (offline Farm-Intelligenz)
-              - Vollstaendiger Ingame-Chat-Tab
-              - Feld-, Fahrzeug-, Produktions-, Tier- und Wirtschafts-Erkennung
-              - Metadaten-System fuer Jessie Crider (FFA Historian)
-              - Liter↔Gallonen-Umrechnung und intelligentere Antworten
-              - Verbesserte Offline-Leistung und Kompatibilitaet
-              ------
+            ------
+            CHANGELOG v1.4.0.0
+            - CriderGPT Apollo Core hinzugefuegt (offline Farm-Intelligenz)
+            - Vollstaendiger Ingame-Chat-Tab
+            - Feld-, Fahrzeug-, Produktions-, Tier- und Wirtschafts-Erkennung
+            - Metadaten-System fuer Jessie Crider (FFA Historian)
+            - Liter↔Gallonen-Umrechnung und intelligentere Antworten
+            - Verbesserte Offline-Leistung und Kompatibilitaet
+            ------
         </de>
 
         <fr>
-              CriderGPT Helper est votre assistant agricole IA pour Farming Simulator 25.
-              Ce script ameliore le jeu avec une automatisation intelligente, des alertes utiles et une interface personnalisee.
+            CriderGPT Helper est votre assistant agricole IA pour Farming Simulator 25.
+            Ce script ameliore le jeu avec une automatisation intelligente, des alertes utiles et une interface personnalisee.
 
-              Caracteristiques:
-              - Remplace "Embaucher un ouvrier IA" / "Renvoyer un ouvrier IA" par "Embaucher CriderGPT" / "Renvoyer CriderGPT" dans l'interface
-              - Affiche des notifications HUD personnalisees lors de l'embauche ou du renvoi d'ouvriers
-              - Surveille le carburant et affiche une alerte en cas de niveau faible
-              - Compatible avec Precision Farming pour les analyses de pH et d'azote
-              - Entierement compatible avec les consoles (sans scripts externes)
+            Caracteristiques:
+            - Remplace "Embaucher un ouvrier IA" / "Renvoyer un ouvrier IA" par "Embaucher CriderGPT" / "Renvoyer CriderGPT" dans l'interface
+            - Affiche des notifications HUD personnalisees lors de l'embauche ou du renvoi d'ouvriers
+            - Surveille le carburant et affiche une alerte en cas de niveau faible
+            - Compatible avec Precision Farming pour les analyses de pH et d'azote
+            - Entierement compatible avec les consoles (sans scripts externes)
 
-              ------
-              CHANGELOG v1.4.0.0
-              - Ajout de CriderGPT Apollo Core (intelligence agricole hors ligne)
-              - Ajout d'un onglet de chat complet en jeu
-              - Ajout de la reconnaissance des champs, vehicules, productions, animaux et economie
-              - Ajout du systeme de metadonnees du createur Jessie Crider (FFA Historian)
-              - Conversion litres↔gallons et reponses plus intelligentes
-              - Amelioration des performances hors ligne et de la compatibilite
-              ------
+            ------
+            CHANGELOG v1.4.0.0
+            - Ajout de CriderGPT Apollo Core (intelligence agricole hors ligne)
+            - Ajout d'un onglet de chat complet en jeu
+            - Ajout de la reconnaissance des champs, vehicules, productions, animaux et economie
+            - Ajout du systeme de metadonnees du createur Jessie Crider (FFA Historian)
+            - Conversion litres↔gallons et reponses plus intelligentes
+            - Amelioration des performances hors ligne et de la compatibilite
+            ------
         </fr>
 
         <es>
-              CriderGPT Helper es tu asistente agricola con IA para Farming Simulator 25.
-              Este script mejora el juego con automatizacion inteligente, alertas utiles y una interfaz personalizada.
+            CriderGPT Helper es tu asistente agricola con IA para Farming Simulator 25.
+            Este script mejora el juego con automatizacion inteligente, alertas utiles y una interfaz personalizada.
 
-              Caracteristicas:
-              - Reemplaza "Contratar trabajador IA" / "Despedir trabajador IA" por "Contratar CriderGPT" / "Despedir CriderGPT" en la interfaz
-              - Muestra notificaciones HUD personalizadas al contratar o despedir trabajadores
-              - Supervisa el combustible y avisa cuando el nivel es bajo
-              - Compatible con Precision Farming para futuras integraciones de pH y nitrogeno
-              - Totalmente compatible con consolas (sin scripts externos)
+            Caracteristicas:
+            - Reemplaza "Contratar trabajador IA" / "Despedir trabajador IA" por "Contratar CriderGPT" / "Despedir CriderGPT" en la interfaz
+            - Muestra notificaciones HUD personalizadas al contratar o despedir trabajadores
+            - Supervisa el combustible y avisa cuando el nivel es bajo
+            - Compatible con Precision Farming para futuras integraciones de pH y nitrogeno
+            - Totalmente compatible con consolas (sin scripts externos)
 
-              ------
-              CHANGELOG v1.4.0.0
-              - Se agrego CriderGPT Apollo Core (inteligencia agricola offline)
-              - Se agrego una pestaña de chat completa en el juego
-              - Deteccion de campos, vehiculos, produccion, ganado y economia
-              - Sistema de metadatos del creador Jessie Crider (FFA Historian)
-              - Conversion litros↔galones y respuestas mas inteligentes
-              - Mejoras generales de rendimiento offline y compatibilidad
-              ------
+            ------
+            CHANGELOG v1.4.0.0
+            - Se agrego CriderGPT Apollo Core (inteligencia agricola offline)
+            - Se agrego una pestaña de chat completa en el juego
+            - Deteccion de campos, vehiculos, produccion, ganado y economia
+            - Sistema de metadatos del creador Jessie Crider (FFA Historian)
+            - Conversion litros↔galones y respuestas mas inteligentes
+            - Mejoras generales de rendimiento offline y compatibilidad
+            ------
         </es>
     </description>
 
     <iconFilename>modIcon.dds</iconFilename>
+
+    <web>https://cridergpt.lovable.app/</web>
 
     <extraSourceFiles>
         <sourceFile filename="CriderGPTHelper.lua"/>
     </extraSourceFiles>
 
     <l10n filenamePrefix="modDesc_l10n"/>
-
     <dependencies/>
 </modDesc>
